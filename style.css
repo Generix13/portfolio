@@ -185,3 +185,51 @@ footer {
         align-items: center;
     }
 }
+
+/* === PROFILE SECTION === */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #0d1117;
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #58a6ff;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.profile-info h1 {
+    margin: 0.5rem 0;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: #58a6ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .social-links a:hover {
+        text-decoration: underline;
+    }
+
+/* === Responsive layout === */
+@media (min-width: 700px) {
+    .profile {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .profile-info {
+        margin-left: 2rem;
+    }
+}
