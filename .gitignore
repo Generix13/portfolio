@@ -1,0 +1,16 @@
+# Visual Studio cache
+.vs/
+
+# Node / npm (if using JS tooling)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build output folders (if any)
+bin/
+obj/
+
+# Logs
+*.log
