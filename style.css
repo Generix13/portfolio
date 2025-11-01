@@ -12,17 +12,43 @@ body {
     background-color: #0e1117;
     color: #e6edf3;
     line-height: 1.6;
+    /* Fixed background image */
+    background-image: url('vince-liu-ndXFW-ykceU-unsplash.jpg');
+    background-size: cover; /* cover the screen */
+    background-repeat: no-repeat;
+    background-position: center; /* center the image */
+    background-attachment: fixed; /* stays in place while scrolling */
+    position: relative; /* needed for the overlay */
 }
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9); /* 0.5 = 90% opacity black */
+        z-index: -1; /* behind all content */
+    }
+
 
 /* ============================
-   NAVIGATION
+   NAVIGATION (Sticky + Glow Text)
 ============================ */
 nav {
-    background: #161b22;
-    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(22, 27, 34, 0.95);
+    backdrop-filter: blur(6px);
     border-bottom: 1px solid #30363d;
+    padding: 1rem 0;
 }
 
+    /* Center horizontally */
     nav ul {
         list-style: none;
         display: flex;
@@ -30,16 +56,59 @@ nav {
         gap: 2rem;
     }
 
+    /* Clean text links with glow effect */
     nav a {
         color: #e6edf3;
         text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        text-shadow: 0 0 0 rgba(46, 160, 67, 0);
     }
 
+        /* Green glow on hover */
         nav a:hover {
-            color: #2ea043; /* green accent */
+            color: #2ea043;
+            transform: translateY(-2px);
+            text-shadow: 0 0 10px rgba(46, 160, 67, 0.5), 0 0 20px rgba(46, 160, 67, 0.25);
+            animation: glowPulse 2s ease-in-out infinite alternate;
         }
+
+/* Shared pulse animation */
+@keyframes glowPulse {
+    from {
+        text-shadow: 0 0 8px rgba(46, 160, 67, 0.15);
+    }
+
+    to {
+        text-shadow: 0 0 14px rgba(46, 160, 67, 0.4);
+    }
+}
+
+
+
+/* Push content down to avoid nav overlap */
+body {
+    padding-top: 70px; /* adjust if your nav is taller */
+}
+
+/* Sticky Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(22, 27, 34, 0.95);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid #30363d;
+}
+
+/* Push content up to avoid footer overlap */
+main, section:last-of-type {
+    margin-bottom: 80px; /* creates space above footer */
+}
+
 
 /* ============================
    HERO SECTION
@@ -48,6 +117,21 @@ nav {
     text-align: center;
     padding: 80px 20px;
     background: linear-gradient(135deg, #161b22, #0d1117);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideIn 1.2s ease forwards;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .profile-pic {
@@ -61,7 +145,12 @@ nav {
 
 #hero h1 {
     font-size: 2.5rem;
-    margin-bottom: 10px;
+    margin-bottom: 1px;
+}
+
+#hero h2 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
 }
 
 #hero p {
@@ -106,6 +195,7 @@ nav {
 
 .about-content p {
     color: #c9d1d9;
+    margin-bottom: 15px;    
 }
 
 .about-content ul {
@@ -136,19 +226,21 @@ nav {
     gap: 15px;
 }
 
+/* ============================
+   SKILLS (No Box, Glow on Hover)
+============================ */
 .skill-card {
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 10px;
-    padding: 15px 25px;
-    font-weight: bold;
+    background: none; /* Remove box background */
+    border: none; /* Remove border */
     color: #e6edf3;
-    transition: transform 0.3s, box-shadow 0.3s;
+    font-weight: 600;
+    transition: transform 0.3s, text-shadow 0.3s;
 }
 
     .skill-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 4px 10px rgba(46, 160, 67, 0.3);
+        color: #2ea043; /* Green accent */
+        text-shadow: 0 0 10px rgba(46, 160, 67, 0.6); /* Green glow */
     }
 
 /* ============================
@@ -235,16 +327,51 @@ button {
     }
 
 /* ============================
-   FOOTER
+   FOOTER (Horizontal Icon Row)
 ============================ */
 footer {
-    background: #161b22;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(22, 27, 34, 0.95);
+    backdrop-filter: blur(6px);
     color: #8b949e;
     text-align: center;
-    padding: 15px;
-    margin-top: 40px;
+    padding: 12px 0 10px;
     border-top: 1px solid #30363d;
+    z-index: 1000;
 }
+
+    footer p {
+        margin-bottom: 6px;
+        font-size: 0.9rem;
+    }
+
+    footer .social-links {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row !important;
+        flex-wrap: nowrap;
+        gap: 25px;
+    }
+
+        footer .social-links a {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            color: #e6edf3;
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+            footer .social-links a:hover {
+                color: #2ea043;
+                transform: translateY(-2px);
+                text-shadow: 0 0 8px rgba(46, 160, 67, 0.5);
+            }
 
 /* ============================
    RESPONSIVE DESIGN
@@ -262,4 +389,70 @@ footer {
     .skills-container, .projects-container {
         flex-direction: column;
     }
+}
+
+/* ============================
+   SOCIAL LINKS (Two-Line Layout)
+============================ */
+.social-links {
+    text-align: center;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+    .social-links a {
+        color: #e6edf3;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .social-links span {
+        color: #8b949e;
+        margin: 0 8px;
+    }
+
+    .social-links a:hover {
+        color: #2ea043;
+        text-shadow: 0 0 10px rgba(46, 160, 67, 0.6);
+        transform: translateY(-2px);
+        animation: glowPulse 2s ease-in-out infinite alternate;
+    }
+
+@keyframes glowPulse {
+    from {
+        text-shadow: 0 0 8px rgba(46, 160, 67, 0.3);
+    }
+
+    to {
+        text-shadow: 0 0 16px rgba(46, 160, 67, 0.6);
+    }
+}
+
+.contact-links, .network-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+    will-change: opacity, transform;
+}
+
+    section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+footer p.photo-credit {
+    font-size: 0.7rem;
+    color: #8b949e; /* same as your footer text */
+    margin: 4px 0;
 }

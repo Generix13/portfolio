@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erick's Profile v4</title>
+    <title>Erick's Profile v1.0</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,12 +23,15 @@
     <section id="hero">
         <img src="profile.jpg" alt="Erick's Photo" class="profile-pic">
         <div class="profile-info">
-            <h1>Erick “Generix13”</h1>
+            <h1>Erick Hernandez</h1>
+            <h2>“Generix13”</h2>
             <p>Executive Virtual Assistant | Future Web Developer</p>
             <div class="social-links">
-                <a href="https://github.com/generix13" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/erick-hernandez-98717a213/" target="_blank">LinkedIn</a>
-                <a href="mailto:erickimsc@gmail.com">Email</a>
+                <div class="contact-links">
+                    <a href="mailto:erickimsc@gmail.com">📨 erickimsc@gmail.com</a>
+                    <span>|</span>
+                    <a href="tel:+639173732443">📞 +63 (917) 373-2443</a>
+                </div>
             </div>
         </div>
     </section>
@@ -36,12 +40,10 @@
     <section id="about">
         <h2>About Me</h2>
         <div class="about-content">
-            <p>I am an executive virtual assistant, social media manager, and tech enthusiast learning web development to create modern, interactive websites. I thrive on problem-solving and workflow optimization.</p>
-            <ul>
-                <li>Efficient & Detail-Oriented</li>
-                <li>Strong Communication Skills</li>
-                <li>Passionate About Technology</li>
-            </ul>
+            <p>I’m a Freelance Executive Virtual Assistant who helps entrepreneurs and small businesses stay organized, efficient, and focused on growth.</p>
+            <p>I streamline workflows, manage communications, and build smart digital systems that save time and reduce chaos. With experience in executive support, automation, and social media management, I bridge the gap between operations and technology.</p>
+            <p style="margin-bottom: 2px;">Core Skills:</p>
+            <p style="text-indent: 2em; margin-top: 2px;">Workflow Optimization • Automation Strategy • Data-Driven Decision Support • Systems Management • Executive Operations</p>
         </div>
     </section>
 
@@ -49,11 +51,12 @@
     <section id="skills">
         <h2>Skills</h2>
         <div class="skills-container">
-            <div class="skill-card">Virtual Assistance</div>
+            <div class="skill-card">Google Workspace / App Script - proficient</div>
+            <div class="skill-card">GoHighLevel CRM & Automation (intermediate proficiency)</div>
+            <div class="skill-card">Data Analysis (Google Sheets, Looker Studio)</div>
             <div class="skill-card">Social Media Management</div>
-            <div class="skill-card">Data Analysis</div>
-            <div class="skill-card">Web Development</div>
-            <div class="skill-card">Automation</div>
+            <div class="skill-card">Front-End Web Development (HTML, CSS, JS - template based)</div>
+            <div class="skill-card">Virtual Assistance</div>
         </div>
     </section>
 
@@ -61,13 +64,31 @@
     <section id="projects">
         <h2>Projects</h2>
         <div class="projects-container">
+            <!-- Project 1 -->
             <div class="project-card">
-                <h3>Portfolio Website</h3>
-                <p>My personal portfolio built from scratch using HTML, CSS, and JS.</p>
+                <img src="tnf-client-data-sheet-screenshot.png" alt="TNF Progress Tracker Screenshot" style="width:100%; border-radius: 8px; margin-bottom:10px;">
+                <h3>Terra Nova Fitness Progress Tracker</h3>
+                <p>Web-based report for members to easily track and monitor their workout progress.</p>
+                <p><strong>Technologies:</strong> Google Sheet, Looker Studio, GoHigh Level, HTML</p>
+                <a href="https://terranovafitness.com/client-data" target="_blank" class="btn">View Project</a>
             </div>
+
+            <!-- Project 2 -->
             <div class="project-card">
-                <h3>Social Media Campaign</h3>
-                <p>Managed campaigns for Terra Nova Fitness across multiple platforms.</p>
+                <img src="tnf-integrated-client-dashboard.png" alt="TNF Progress Dashboard Screenshot" style="width:100%; border-radius: 8px; margin-bottom:10px;">
+                <h3>TNF Progress Dashboard</h3>
+                <p>Dashboard for TNF coaches to review and discuss members’ progress during check-ins.</p>
+                <p><strong>Technologies:</strong> Google Sheet, Looker Studio</p>
+                <a href="https://lookerstudio.google.com/s/s5bLUOHVkRk" class="btn">View Details</a>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <img src="tnf-progress-checkin-portal-screenshot.png" alt="TNF Progress CheckIn Portal Screenshot" style="width:100%; border-radius: 8px; margin-bottom:10px;">
+                <h3>TNF Progress Check-In Portal</h3>
+                <p>All-in-one portal for TNF coaches to review member dashboards, record check-in notes, track progress, strength scores, nutrition data, and record food spectrul data.</p>
+                <p><strong>Technologies:</strong>Google Sheet, Looker Studio, App Script, GoHig Level, HTML, CSS</p>
+                <a href="https://terranovafitness.com/tnf-success-sheet-815613" class="btn">View Details</a>
             </div>
             <!-- Add more projects here -->
         </div>
@@ -86,8 +107,25 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 Erick</p>
+        <p>© 2025 Erick Hernandez</p>
+        <div class="social-links">
+            <a href="https://github.com/generix13" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/erick-hernandez-98717a213/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/erickimsc"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/generix13/"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/generix13"><i class="fab fa-x-twitter"></i></a>
+        </div>
+
+        <!-- Background photo credit -->
+        <p class="photo-credit">
+            Background photo by
+            <a href="https://unsplash.com/@vinceliu" target="_blank" rel="noopener noreferrer">Vince Liu</a>
+            on
+            <a href="https://unsplash.com/photos/ndXFW-ykceU" target="_blank" rel="noopener noreferrer">Unsplash</a>
+        </p>
     </footer>
+
+
 
     <script src="script.js"></script>
 </body>
