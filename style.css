@@ -482,3 +482,14 @@ footer p.photo-credit {
     color: #8b949e; /* same as your footer text */
     margin: 4px 0;
 }
+
+.skill-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+    .skill-link:hover .skill-card {
+        transform: translateY(-4px);
+        transition: 0.2s ease;
+    }
+
