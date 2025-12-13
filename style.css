@@ -483,13 +483,22 @@ footer p.photo-credit {
     margin: 4px 0;
 }
 
+/* ============================
+   SKILL LINKS (OPEN IN NEW TAB)
+============================ */
+
 .skill-link {
     text-decoration: none;
     color: inherit;
+    display: block;
 }
 
-    .skill-link:hover .skill-card {
-        transform: translateY(-4px);
-        transition: 0.2s ease;
-    }
+.skill-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
+.skill-link:hover .skill-card {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
