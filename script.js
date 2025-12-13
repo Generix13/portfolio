@@ -44,3 +44,4 @@ sections.forEach((section, index) => {
     observer.observe(section);
     section.style.transitionDelay = `${index * 0.2}s`; // delays each section slightly
 });
+
