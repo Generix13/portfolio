@@ -8,31 +8,29 @@ window.onload = function () {
 // ============================
 // CONTACT FORM HANDLER (EMAILJS)
 // ============================
-const contactForm = document.getElementById("contact-form");
+contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
+    const name = this.name.value.trim();
+    const email = this.email.value.trim();
+    const message = this.message.value.trim();
 
-        const name = this.name.value.trim();
-        const email = this.email.value.trim();
-        const message = this.message.value.trim();
-
-        emailjs.send("service_ow2pajf", "template_kzpne5r", {
-            from_name: name,
-            from_email: email,
-            message: message
+    emailjs.send("service_epr1tmd", "template_kzpne5r", {
+        from_name: name,
+        from_email: email,
+        reply_to: email,
+        message: message
+    })
+        .then(() => {
+            alert("Thank you! Your message has been sent.");
+            this.reset();
         })
-            .then(() => {
-                alert("Thank you! Your message has been sent.");
-                contactForm.reset();
-            })
-            .catch((error) => {
-                console.error("EmailJS Error:", error);
-                alert("Oops! Something went wrong. Please try again.");
-            });
-    });
-}
+        .catch((error) => {
+            console.error("EmailJS Error:", error);
+            alert(error.text || "Failed to send message.");
+        });
+});
+
 
 // ============================
 // SECTION FADE-IN ANIMATION
