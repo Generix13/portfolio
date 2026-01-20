@@ -160,12 +160,21 @@
     <!-- Contact Section -->
     <section id="contact">
         <h2>Contact Me</h2>
-        <form id="contact-form">
+        <form id="contact-form" action="https://formsubmit.co/erickimsc@gmail.com" method="POST">
+            <!-- Email subject -->
+            <input type="hidden" name="_subject" value="New Portfolio Contact Message">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <!-- Optional: redirect to a thank-you page -->
+            <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html"> -->
+
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
             <button type="submit">Send Message</button>
         </form>
+
+
     </section>
 
     <!-- Footer -->
@@ -191,14 +200,7 @@
         </p>
     </footer>
 
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-        (function () {
-            emailjs.init(Z-4M7n69nBrPdsX3q);
-        })();
-    </script>
-
+    <!-- Main Script --> 
     <script src="script.js"></script>
 
 

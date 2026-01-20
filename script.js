@@ -6,42 +6,6 @@ window.onload = function () {
 };
 
 // ============================
-// CONTACT FORM HANDLER (EMAILJS)
-// ============================
-const contactForm = document.getElementById("contact-form");
-
-if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const name = this.name.value.trim();
-        const email = this.email.value.trim();
-        const message = this.message.value.trim();
-
-        if (!name || !email || !message) {
-            alert("Please fill out all fields.");
-            return;
-        }
-
-        emailjs.send("service_epr1tmd", "template_syg1fqw", {
-            from_name: name,
-            from_email: email,
-            reply_to: email,
-            message: message,
-            time: new Date().toLocaleString()
-        })
-            .then(() => {
-                alert("Thank you! Your message has been sent.");
-                contactForm.reset();
-            })
-            .catch((error) => {
-                console.error("EmailJS Error:", error);
-                alert(error.text || "Failed to send message.");
-            });
-    });
-}
-
-// ============================
 // SECTION FADE-IN ANIMATION
 // ============================
 document.addEventListener("DOMContentLoaded", () => {
