@@ -18,19 +18,19 @@ if (contactForm) {
         const email = this.email.value.trim();
         const message = this.message.value.trim();
 
-        emailjs.send("service_portfolio", "template_contact", {
+        emailjs.send("service_ow2pajf", "template_kzpne5r", {
             from_name: name,
             from_email: email,
             message: message
         })
-        .then(() => {
-            alert("Thank you! Your message has been sent.");
-            contactForm.reset();
-        })
-        .catch((error) => {
-            console.error("EmailJS Error:", error);
-            alert("Oops! Something went wrong. Please try again.");
-        });
+            .then(() => {
+                alert("Thank you! Your message has been sent.");
+                contactForm.reset();
+            })
+            .catch((error) => {
+                console.error("EmailJS Error:", error);
+                alert("Oops! Something went wrong. Please try again.");
+            });
     });
 }
 
