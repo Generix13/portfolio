@@ -160,22 +160,25 @@
     <!-- Contact Section -->
     <section id="contact">
         <h2>Contact Me</h2>
-        <form id="contact-form" action="https://formsubmit.co/erickimsc@gmail.com" method="POST">
-            <!-- Email subject -->
+        <form id="contact-form" action="https://formsubmit.co/erickimsc@gmail.com" method="POST" class="contact-form">
+            <!-- FormSubmit hidden fields -->
             <input type="hidden" name="_subject" value="New Portfolio Contact Message">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
-            <!-- Optional: redirect to a thank-you page -->
+            <!-- Optional: redirect to thank-you page -->
             <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html"> -->
+            <!-- Honeypot for spam protection -->
+            <input type="text" name="_honey" style="display:none">
 
+            <!-- User fields -->
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+
             <button type="submit">Send Message</button>
         </form>
-
-
     </section>
+
 
     <!-- Footer -->
     <footer>
@@ -200,7 +203,7 @@
         </p>
     </footer>
 
-    <!-- Main Script --> 
+    <!-- Main Script -->
     <script src="script.js"></script>
 
 
