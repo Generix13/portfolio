@@ -165,9 +165,6 @@
             <input type="hidden" name="_subject" value="New Portfolio Contact Message">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
-            <!-- Optional: redirect to thank-you page -->
-            <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html"> -->
-            <!-- Honeypot for spam protection -->
             <input type="text" name="_honey" style="display:none">
 
             <!-- User fields -->
@@ -177,7 +174,13 @@
 
             <button type="submit">Send Message</button>
         </form>
+
+        <!-- Thank You Message (hidden by default) -->
+        <div id="thank-you" style="display:none; text-align:center; margin-top:20px; font-size:16px; color:green;">
+            ✅ Thank you! Your message has been sent.
+        </div>
     </section>
+
 
 
     <!-- Footer -->
