@@ -23,7 +23,7 @@ if (contactForm) {
             return;
         }
 
-        emailjs.send("service_epr1tmd", "template_kzpne5r", {
+        emailjs.send("service_epr1tmd", "template_syg1fqw", {
             from_name: name,
             from_email: email,
             reply_to: email,
