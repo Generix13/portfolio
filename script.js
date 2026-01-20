@@ -1,4 +1,4 @@
-﻿// ============================
+// ============================
 // INITIAL WELCOME MESSAGE
 // ============================
 window.onload = function () {
@@ -6,42 +6,52 @@ window.onload = function () {
 };
 
 // ============================
-// CONTACT FORM HANDLER
+// CONTACT FORM HANDLER (EMAILJS)
 // ============================
-const contactForm = document.getElementById('contact-form');
+const contactForm = document.getElementById("contact-form");
+
 if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevent page reload
+    contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
         const name = this.name.value.trim();
         const email = this.email.value.trim();
         const message = this.message.value.trim();
 
-        console.log(`New message from ${name} (${email}): ${message}`);
-        alert('Thank you for your message!');
-        this.reset();
+        emailjs.send("service_portfolio", "template_contact", {
+            from_name: name,
+            from_email: email,
+            message: message
+        })
+        .then(() => {
+            alert("Thank you! Your message has been sent.");
+            contactForm.reset();
+        })
+        .catch((error) => {
+            console.error("EmailJS Error:", error);
+            alert("Oops! Something went wrong. Please try again.");
+        });
     });
 }
 
 // ============================
-// SECTION FADE-IN ANIMATION (ON SCROLL)
+// SECTION FADE-IN ANIMATION
 // ============================
 document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll("section");
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target); // Animate once
-            }
-        });
-    }, { threshold: 0.1 });
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    entry.target.style.transitionDelay = `${index * 0.2}s`;
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
 
     sections.forEach(section => observer.observe(section));
 });
-
-sections.forEach((section, index) => {
-    observer.observe(section);
-    section.style.transitionDelay = `${index * 0.2}s`; // delays each section slightly
-});
-
